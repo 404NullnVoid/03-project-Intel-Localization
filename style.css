@@ -1,0 +1,202 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 0 1rem;
+
+  /* Navy blue hexagon pattern, now 98% transparent (opacity 0.02) */
+  background-image: url("data:image/svg+xml;utf8,<svg width='28' height='32' viewBox='0 0 28 32' fill='none' xmlns='http://www.w3.org/2000/svg'><polygon points='14,2 27,9 27,23 14,30 1,23 1,9' stroke='%230a1833' stroke-width='1.5' fill='none' opacity='0.02'/></svg>");
+  background-repeat: repeat;
+  background-size: 28px 32px;
+}
+
+/* Hero Section */
+.hero {
+  /* Simple linear gradient background */
+  background: linear-gradient(to right, #013e6d, #00a6ed);
+
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  position: relative; /* Needed for stacking context */
+}
+
+.hero .logo {
+  max-width: 120px;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Timeline Section */
+.timeline {
+  display: flex;                      /* Arrange cards in a row */
+  flex-direction: row;                /* Horizontal direction */
+  overflow-x: auto;                   /* Enable horizontal scrolling */
+  gap: 2rem;                          /* Space between cards */
+  padding: 2rem 0;
+  scroll-behavior: smooth;            /* Smooth scrolling */
+  -webkit-overflow-scrolling: touch;  /* Better on iOS */
+  width: 100%;                        /* Take up full width of container */
+  max-width: 1260px;                  /* 3 cards * 400px + 2 gaps (about 1260px) */
+  margin: 0 auto;                     /* Center the timeline on the page */
+
+  /* Add scroll snap for horizontal scrolling */
+  scroll-snap-type: x mandatory;      /* Snap to each card horizontally */
+}
+
+/* Each card will snap into place */
+.card {
+  min-width: 400px;                   /* Minimum width for each card */
+  max-width: 400px;                   /* Maximum width for each card */
+  flex: 0 0 400px;                    /* Prevent cards from shrinking or growing */
+  scroll-snap-align: start;           /* Snap each card to the start of the container */
+}
+
+/* Responsive: Show 2 cards at a time on medium screens */
+@media (max-width: 900px) {
+  .timeline {
+    max-width: 832px;             /* 2 cards * 400px + 1 gap (about 832px) */
+  }
+}
+
+/* Responsive: Show 1 card at a time on small screens */
+@media (max-width: 500px) {
+  .timeline {
+    max-width: 400px;             /* 1 card */
+    gap: 1rem;                    /* Smaller gap for small screens */
+    padding: 1rem 0;
+  }
+  .card {
+    min-width: 90vw;              /* Card fills most of the screen */
+    max-width: 90vw;
+    flex: 0 0 90vw;
+  }
+}
+
+/* Make the horizontal scrollbar bigger and easier to use */
+.timeline {
+  scrollbar-width: thick;            /* For Firefox */
+  scrollbar-color: #0071c5 #e0e0e0;  /* For Firefox: thumb and track color */
+}
+.timeline::-webkit-scrollbar {
+  height: 18px;                      /* Makes the scrollbar thicker */
+}
+.timeline::-webkit-scrollbar-thumb {
+  background: #0071c5;               /* Scrollbar thumb color */
+  border-radius: 8px;
+}
+.timeline::-webkit-scrollbar-track {
+  background: #e0e0e0;               /* Scrollbar track color */
+  border-radius: 8px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 400px;
+  max-width: 400px;
+  flex: 0 0 400px; /* Prevent cards from shrinking or growing */
+}
+
+/* Card image container for hover effect */
+.card-image-container {
+  position: relative; /* Needed for absolute positioning of overlay */
+}
+
+/* Make the image fill the container and be taller */
+.card-image-container img {
+  width: 100%;
+  height: 240px;              /* Increased height for better readability */
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* The overlay text, hidden by default */
+.card-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: rgba(30, 30, 30, 0.7); /* dark transparent gray */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0; /* Hide by default */
+  border-radius: 6px;
+  padding: 1.5rem;            /* More padding for easier reading */
+  transition: opacity 0.3s;
+  font-size: 1.1rem;          /* Slightly larger text */
+}
+
+/* When you hover over the card, show the overlay text */
+.card:hover .card-text {
+  opacity: 1;
+}
+
+/* When you hover over the card, dim the image */
+.card:hover img {
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+/* Make the card shadow more noticeable on hover */
+.card:hover {
+  transform: translateY(-5px);
+  /* Brighter and larger shadow for hover */
+  box-shadow: 0 12px 32px rgba(0, 113, 197, 0.25), 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  color: #0071c5;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer Note */
+.note {
+  text-align: center;
+  padding: 2rem 0;
+  font-style: italic;
+  color: #666;
+}
+
+/* Responsive Text Sizes */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
