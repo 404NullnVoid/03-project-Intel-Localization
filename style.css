@@ -32,7 +32,21 @@ body {
   padding: 3rem 1rem;
   text-align: center;
   position: relative; /* Needed for stacking context */
+
+  /* Make sure the hero section can contain absolutely positioned children */
   overflow: hidden;   /* Prevents particles from overflowing */
+}
+
+/* Make the particles canvas fill the header and stay behind the text */
+#particles-canvas {
+  position: absolute;   /* Place it over the hero section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;           /* Put it behind the text */
+  pointer-events: none; /* Let mouse events pass through */
+  display: block;       /* Remove any inline gaps */
 }
 
 .hero .logo {
@@ -49,6 +63,17 @@ body {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* Particles Background for Hero Section */
+.particles-bg {
+  position: absolute;   /* Position it over the hero section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;           /* Put it behind the text */
+  pointer-events: none; /* Let mouse events pass through */
 }
 
 /* Timeline Section */
@@ -222,8 +247,8 @@ body {
   width: 100%;
   margin-top: 2rem;
 
-  /* Make sure the footer stays at the bottom */
-  margin-top: auto;          /* Pushes footer to the bottom */
+  /* Pushes footer to the bottom */
+  margin-top: auto;
 }
 
 .footer-text {
@@ -231,53 +256,6 @@ body {
   text-align: center;
   width: 100%;
   font-size: 1rem;
-}
-
-/* Responsive Text Sizes */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
-/* Particles Background for Hero Section */
-.particles-bg {
-  position: absolute;   /* Position it over the hero section */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;           /* Put it behind the text */
-  pointer-events: none; /* Let mouse events pass through */
-  /* background: red;   Remove or comment out this line */
-}
-
-/* Logo, Heading, and Paragraph in Hero Section */
-.hero .logo,
-.hero h1,
-.hero p {
-  position: relative;
-  z-index: 2; /* Ensure these are above the particles */
-}
-
-/* Make the particles canvas fill the header and stay behind the text */
-#particles-canvas {
-  position: absolute;   /* Place it over the hero section */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;           /* Put it behind the text */
-  pointer-events: none; /* Let mouse events pass through */
-  display: block;       /* Remove any inline gaps */
-}
-.hero {
-  position: relative;   /* Needed for absolute positioning of canvas */
-  overflow: hidden;     /* Prevents canvas from overflowing */
 }
 
 /* Newsletter form with 3-inch left and right margins */
@@ -307,43 +285,47 @@ body {
   }
 }
 
-/* Timeline carousel image hover effect */
-.timeline-card-image-container {
+/* Responsive Text Sizes */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Additional styles for logo and text in the hero section */
+.hero .logo,
+.hero h1,
+.hero p {
   position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
+  z-index: 2; /* Ensure logo and text are above particles */
 }
-.timeline-card-img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 6px;
-  display: block;
-  transition: opacity 0.3s;
+
+/* Small button glued to the bottom-right corner */
+.toggle-dir-btn {
+  position: fixed;           /* Stay in the same place even when scrolling */
+  bottom: 20px;              /* 20px from the bottom */
+  right: 20px;               /* 20px from the right */
+  z-index: 9999;             /* Stay above other elements */
+  padding: 0.5rem 1rem;      /* Small padding */
+  font-size: 1rem;           /* Small font */
+  background: #0071c5;       /* Blue background */
+  color: #fff;               /* White text */
+  border: none;              /* No border */
+  border-radius: 20px;       /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow */
+  cursor: pointer;           /* Pointer cursor on hover */
+  transition: background 0.2s;
 }
-.timeline-card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  background: rgba(30, 30, 30, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 0;
-  border-radius: 6px;
-  padding: 1.5rem;
-  transition: opacity 0.3s;
-  font-size: 1.1rem;
-  pointer-events: none;
+.toggle-dir-btn:hover {
+  background: #005a99;       /* Darker blue on hover */
 }
-.timeline-card-image-container:hover .timeline-card-img {
-  opacity: 0.3;
-}
-.timeline-card-image-container:hover .timeline-card-overlay {
-  opacity: 1;
+
+/* Make the info section icons smaller for beginners */
+.info-icon {
+  font-size: 1.8rem; /* Smaller than display-4 */
+  margin-bottom: 0.5rem;
 }

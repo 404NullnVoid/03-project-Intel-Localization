@@ -13,13 +13,13 @@
 <body>
 
   <!-- Button to switch between English (LTR) and Arabic (RTL) -->
-  <button id="toggle-dir" style="margin: 1rem;">
-    Switch to Arabic (RTL)
-  </button>
+  <!-- Language Direction Switch Button -->
+<button id="toggle-dir" class="toggle-dir-btn">
+  Switch to Arabic (RTL)
+</button>
 
   <!-- Header / Hero Section -->
   <header class="hero">
-    <!-- This canvas will show the animated particles -->
     <canvas id="particles-canvas"></canvas>
     <div class="hero-content">
       <img src="img/intel-header-logo.svg" alt="Intel Logo" class="logo" />
@@ -41,7 +41,7 @@
       <h3 id="card1-title">Intel Founded</h3>
       <div class="card-image-container">
         <img src="img/contenteetimes-images-ednmoments-intel-founders-800.webp" alt="Intel founders and early days" />
-        <div class="card-text" id="card1-info">
+        <div class="card-text" id="card1-hover">
           Robert Noyce and Gordon Moore rename the newly formed company 
           NM Electronics to Intel Corporation, laying the foundation for 
           decades of technological innovation.
@@ -55,7 +55,7 @@
       <h3 id="card2-title">First Microprocessor</h3>
       <div class="card-image-container">
         <img src="img/2c4955a0-26c5-41de-ab78-976aca047fc5_1280x853.jpg" alt="Intel 4004 microprocessor" />
-        <div class="card-text" id="card2-info">
+        <div class="card-text" id="card2-hover">
           Intel debuts the 4004, the world's first commercial microprocessor, 
           igniting the microprocessor revolution and propelling the future 
           of computing devices.
@@ -65,11 +65,11 @@
 
     <!-- Card 3: 1978 -->
     <div class="card">
-      <h2>1978</h2>
-      <h3>8086 Processor</h3>
+      <h2 id="card3-year">1978</h2>
+      <h3 id="card3-title">8086 Processor</h3>
       <div class="card-image-container">
         <img src="img/slide1-l-1.jpg" alt="8086 chip close-up" />
-        <div class="card-text">
+        <div class="card-text" id="card3-hover">
           Launch of the 8086 processor, establishing the x86 architecture 
           that drives countless PCs and servers in the modern era.
         </div>
@@ -78,11 +78,11 @@
 
     <!-- Card 4: 1985 -->
     <div class="card">
-      <h2>1985</h2>
-      <h3>386 Processor</h3>
+      <h2 id="card4-year">1985</h2>
+      <h3 id="card4-title">386 Processor</h3>
       <div class="card-image-container">
         <img src="img/Intel386EX.jpg" alt="Intel 386 chip and motherboard" />
-        <div class="card-text">
+        <div class="card-text" id="card4-hover">
           Intel introduces the 386 processor with 32-bit architecture, 
           ushering in a new era of performance and multitasking for 
           personal computers.
@@ -92,11 +92,11 @@
 
     <!-- Card 5: 2006 -->
     <div class="card">
-      <h2>2006</h2>
-      <h3>Peak GHG Emissions</h3>
+      <h2 id="card5-year">2006</h2>
+      <h3 id="card5-title">Peak GHG Emissions</h3>
       <div class="card-image-container">
         <img src="img/jose-g-ortega-castro-ybcO7qNZrB0-unsplash.jpg" alt="Greenhouse emissions factory" />
-        <div class="card-text">
+        <div class="card-text" id="card5-hover">
           This year marks Intel's highest annual greenhouse gas emissions 
           for operations. Over subsequent years, Intel invests heavily in 
           chemical abatement, renewable energy, and energy-efficient 
@@ -107,11 +107,11 @@
 
     <!-- Card 6: 2020 -->
     <div class="card">
-      <h2>2020</h2>
-      <h3>RISE Strategy</h3>
+      <h2 id="card6-year">2020</h2>
+      <h3 id="card6-title">RISE Strategy</h3>
       <div class="card-image-container">
         <img src="img/dao-hi-u-fDBaUGOcxKA-unsplash.jpg" alt="Green energy concept" />
-        <div class="card-text">
+        <div class="card-text" id="card6-hover">
           Intel launches its RISE (Responsible, Inclusive, Sustainable, 
           Enabling) strategy and 2030 goals, aiming to drive industry-wide 
           progress on climate action, water stewardship, and waste reduction.
@@ -121,11 +121,11 @@
 
     <!-- Card 7: 2022 -->
     <div class="card">
-      <h2>2022</h2>
-      <h3>Net-Zero By 2040</h3>
+      <h2 id="card7-year">2022</h2>
+      <h3 id="card7-title">Net-Zero By 2040</h3>
       <div class="card-image-container">
         <img src="img/michu-dang-quang-uiHSQWPpX_4-unsplash.jpg" alt="Zero carbon footprint concept" />
-        <div class="card-text">
+        <div class="card-text" id="card7-hover">
           Intel announces its commitment to achieve net-zero greenhouse 
           gas emissions (Scope 1 and 2) across its global operations 
           by 2040, building on years of environmental initiatives.
@@ -135,11 +135,11 @@
 
     <!-- Card 8: 2023 -->
     <div class="card">
-      <h2>2023</h2>
-      <h3>Renewable Electricity</h3>
+      <h2 id="card8-year">2023</h2>
+      <h3 id="card8-title">Renewable Electricity</h3>
       <div class="card-image-container">
         <img src="img/maksym-diachenko-VfuY3s3w7sw-unsplash.jpg" alt="Solar panels and wind turbines" />
-        <div class="card-text">
+        <div class="card-text" id="card8-hover">
           The company achieves 99% renewable electricity usage worldwide, 
           helping to drastically lower carbon emissions and driving progress 
           toward Intel's long-term sustainability goals.
@@ -149,11 +149,11 @@
 
     <!-- Card 9: 2024 -->
     <div class="card">
-      <h2>2024</h2>
-      <h3>Sustainability Summit</h3>
+      <h2 id="card9-year">2024</h2>
+      <h3 id="card9-title">Sustainability Summit</h3>
       <div class="card-image-container">
         <img src="img/korie-cull-ODocfzoVVtc-unsplash.jpg" alt="Conference attendees and stage" />
-        <div class="card-text">
+        <div class="card-text" id="card9-hover">
           Intel hosts its first Sustainability Summit, uniting suppliers, 
           government officials, and industry leaders to collaborate on 
           next-generation sustainable semiconductor manufacturing.
@@ -183,6 +183,33 @@
     </form>
   </div>
 
+  <!-- Responsive three-column layout using Bootstrap grid -->
+  <div class="container my-5" id="info-columns">
+    <div class="row text-center">
+      <!-- Column 1 -->
+      <div class="col-md-4 mb-4">
+        <i class="bi bi-globe2 info-icon text-primary"></i>
+        <h3 class="mt-3" id="col1-title">Global Impact</h3>
+        <p id="col1-desc">Discover how Intel’s innovations are making a difference around the world.</p>
+        <a href="#" class="learn-more-link" id="col1-link">Learn More</a>
+      </div>
+      <!-- Column 2 -->
+      <div class="col-md-4 mb-4">
+        <i class="bi bi-lightning-charge-fill info-icon text-success"></i>
+        <h3 class="mt-3" id="col2-title">Energy Efficiency</h3>
+        <p id="col2-desc">See how we’re reducing energy use and supporting a greener planet.</p>
+        <a href="#" class="learn-more-link" id="col2-link">Learn More</a>
+      </div>
+      <!-- Column 3 -->
+      <div class="col-md-4 mb-4">
+        <i class="bi bi-people-fill info-icon text-warning"></i>
+        <h3 class="mt-3" id="col3-title">Community</h3>
+        <p id="col3-desc">Learn about our commitment to people, education, and local communities.</p>
+        <a href="#" class="learn-more-link" id="col3-link">Learn More</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer Section -->
   <!-- The footer uses the same background as the header and is about 1 inch tall -->
   <footer class="footer-custom">
@@ -191,12 +218,42 @@
     </p>
   </footer>
 
+  <!-- Language Change Modal -->
+<div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal header with title and close button -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="languageModalLabel">Change Language?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Modal body with message -->
+      <div class="modal-body">
+        Would you like to switch the website language?
+      </div>
+      <!-- Modal footer with action buttons -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirm-language-switch">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Bootstrap JS (needed for some Bootstrap features like carousel) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
   // Beginner-friendly: Switch between LTR (English) and RTL (Arabic)
   const toggleBtn = document.getElementById('toggle-dir');
   let isRTL = false;
+
+  // Get the modal and the confirm button
+  const languageModal = new bootstrap.Modal(document.getElementById('languageModal'));
+  const confirmSwitchBtn = document.getElementById('confirm-language-switch');
+
+  // Store the intended language switch
+  let pendingSwitch = null;
 
   // Add translations for the newsletter form
   const translations = {
@@ -205,24 +262,78 @@
       desc: "Explore Intel's journey through time, discovering how our commitment to innovation has shaped a more sustainable future for technology and our planet.",
       button: "Switch to Arabic (RTL)",
       newsletter: {
-        title: "Subscribe to Our Sustainability Newsletter",
+        title: "Sustainability Through the Ages",
         nameLabel: "Name",
         namePlaceholder: "Enter your name",
         emailLabel: "Email address",
         emailPlaceholder: "Enter your email",
         btn: "Subscribe"
       },
-      card1: {
-        year: "1968",
-        title: "Intel Founded",
-        info: "Robert Noyce and Gordon Moore rename the newly formed company NM Electronics to Intel Corporation, laying the foundation for decades of technological innovation."
+      copyright: "© 2025 Intel Corporation. All rights reserved.",
+      columns: {
+        col1: {
+          title: "Global Impact",
+          desc: "Discover how Intel’s innovations are making a difference around the world.",
+          link: "Learn More"
+        },
+        col2: {
+          title: "Energy Efficiency",
+          desc: "See how we’re reducing energy use and supporting a greener planet.",
+          link: "Learn More"
+        },
+        col3: {
+          title: "Community",
+          desc: "Learn about our commitment to people, education, and local communities.",
+          link: "Learn More"
+        }
       },
-      card2: {
-        year: "1971",
-        title: "First Microprocessor",
-        info: "Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices."
-      },
-      copyright: "© 2025 Intel Corporation. All rights reserved."
+      cards: {
+        card1: {
+          year: "1968",
+          title: "Intel Founded",
+          hover: "Robert Noyce and Gordon Moore rename the newly formed company NM Electronics to Intel Corporation, laying the foundation for decades of technological innovation."
+        },
+        card2: {
+          year: "1971",
+          title: "First Microprocessor",
+          hover: "Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices."
+        },
+        card3: {
+          year: "1978",
+          title: "8086 Processor",
+          hover: "Launch of the 8086 processor, establishing the x86 architecture that drives countless PCs and servers in the modern era."
+        },
+        card4: {
+          year: "1985",
+          title: "386 Processor",
+          hover: "Intel introduces the 386 processor with 32-bit architecture, ushering in a new era of performance and multitasking for personal computers."
+        },
+        card5: {
+          year: "2006",
+          title: "Peak GHG Emissions",
+          hover: "This year marks Intel's highest annual greenhouse gas emissions for operations. Over subsequent years, Intel invests heavily in chemical abatement, renewable energy, and energy-efficient manufacturing to reverse this trend."
+        },
+        card6: {
+          year: "2020",
+          title: "RISE Strategy",
+          hover: "Intel launches its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and 2030 goals, aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction."
+        },
+        card7: {
+          year: "2022",
+          title: "Net-Zero By 2040",
+          hover: "Intel announces its commitment to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across its global operations by 2040, building on years of environmental initiatives."
+        },
+        card8: {
+          year: "2023",
+          title: "Renewable Electricity",
+          hover: "The company achieves 99% renewable electricity usage worldwide, helping to drastically lower carbon emissions and driving progress toward Intel's long-term sustainability goals."
+        },
+        card9: {
+          year: "2024",
+          title: "Sustainability Summit",
+          hover: "Intel hosts its first Sustainability Summit, uniting suppliers, government officials, and industry leaders to collaborate on next-generation sustainable semiconductor manufacturing."
+        }
+      }
     },
     ar: {
       title: "الاستدامة عبر العصور",
@@ -236,59 +347,133 @@
         emailPlaceholder: "أدخل بريدك الإلكتروني",
         btn: "اشترك"
       },
-      card1: {
-        year: "١٩٦٨",
-        title: "تأسيس إنتل",
-        info: "روبرت نويس وجوردون مور يغيران اسم الشركة الجديدة من NM Electronics إلى إنتل، مما يمهد الطريق لعقود من الابتكار التكنولوجي."
+      copyright: "© ٢٠٢٥ شركة إنتل. جميع الحقوق محفوظة.",
+      columns: {
+        col1: {
+          title: "الأثر العالمي",
+          desc: "اكتشف كيف تُحدث ابتكارات إنتل فرقًا حول العالم.",
+          link: "اعرف المزيد"
+        },
+        col2: {
+          title: "كفاءة الطاقة",
+          desc: "شاهد كيف نقلل استهلاك الطاقة وندعم كوكبًا أكثر خضرة.",
+          link: "اعرف المزيد"
+        },
+        col3: {
+          title: "المجتمع",
+          desc: "تعرف على التزامنا تجاه الناس والتعليم والمجتمعات المحلية.",
+          link: "اعرف المزيد"
+        }
       },
-      card2: {
-        year: "١٩٧١",
-        title: "أول معالج دقيق",
-        info: "تطلق إنتل 4004، أول معالج دقيق تجاري في العالم، مما يشعل ثورة المعالجات الدقيقة ويدفع مستقبل أجهزة الحوسبة."
-      },
-      copyright: "© ٢٠٢٥ شركة إنتل. جميع الحقوق محفوظة."
+      cards: {
+        card1: {
+          year: "١٩٦٨",
+          title: "تأسيس إنتل",
+          hover: "روبرت نويس وجوردون مور يغيران اسم الشركة الجديدة من NM Electronics إلى إنتل، مما يمهد الطريق لعقود من الابتكار التكنولوجي."
+        },
+        card2: {
+          year: "١٩٧١",
+          title: "أول معالج دقيق",
+          hover: "تطلق إنتل 4004، أول معالج دقيق تجاري في العالم، مما يشعل ثورة المعالجات الدقيقة ويدفع مستقبل أجهزة الحوسبة."
+        },
+        card3: {
+          year: "١٩٧٨",
+          title: "معالج 8086",
+          hover: "إطلاق معالج 8086، الذي أسس معمارية x86 التي تشغل العديد من أجهزة الكمبيوتر والخوادم الحديثة."
+        },
+        card4: {
+          year: "١٩٨٥",
+          title: "معالج 386",
+          hover: "تقدم إنتل معالج 386 بمعمارية 32-بت، مما أطلق عصرًا جديدًا من الأداء وتعدد المهام لأجهزة الكمبيوتر الشخصية."
+        },
+        card5: {
+          year: "٢٠٠٦",
+          title: "ذروة انبعاثات الغازات الدفيئة",
+          hover: "يمثل هذا العام أعلى انبعاثات سنوية للغازات الدفيئة في عمليات إنتل. في السنوات التالية، تستثمر إنتل بكثافة في معالجة المواد الكيميائية والطاقة المتجددة والتصنيع الفعال للطاقة لعكس هذا الاتجاه."
+        },
+        card6: {
+          year: "٢٠٢٠",
+          title: "استراتيجية RISE",
+          hover: "تطلق إنتل استراتيجية RISE (المسؤولية، الشمول، الاستدامة، التمكين) وأهداف 2030، بهدف دفع التقدم الصناعي في العمل المناخي وإدارة المياه وتقليل النفايات."
+        },
+        card7: {
+          year: "٢٠٢٢",
+          title: "صفر انبعاثات بحلول 2040",
+          hover: "تعلن إنتل التزامها بتحقيق صافي انبعاثات صفرية (النطاق 1 و2) في عملياتها العالمية بحلول عام 2040، استنادًا إلى سنوات من المبادرات البيئية."
+        },
+        card8: {
+          year: "٢٠٢٣",
+          title: "الكهرباء المتجددة",
+          hover: "تصل الشركة إلى استخدام 99% من الكهرباء المتجددة عالميًا، مما يساعد على خفض الانبعاثات الكربونية بشكل كبير ودفع التقدم نحو أهداف الاستدامة طويلة المدى لإنتل."
+        },
+        card9: {
+          year: "٢٠٢٤",
+          title: "قمة الاستدامة",
+          hover: "تستضيف إنتل أول قمة للاستدامة، وتجمع الموردين والمسؤولين الحكوميين وقادة الصناعة للتعاون في تصنيع أشباه الموصلات المستدامة للجيل القادم."
+        }
+      }
     }
   };
 
   toggleBtn.onclick = function() {
+    // Set what the next language should be
+    pendingSwitch = !isRTL;
+    languageModal.show();
+  };
+
+  // When the user confirms in the modal, switch the language
+  confirmSwitchBtn.onclick = function() {
+    if (pendingSwitch === null) return;
+    // This is your original language switch code:
     const html = document.documentElement;
     const mainTitle = document.getElementById('main-title');
     const mainDesc = document.getElementById('main-desc');
-    // Newsletter form elements
     const newsletterTitle = document.getElementById('newsletter-title');
     const newsletterNameLabel = document.getElementById('newsletter-name-label');
     const newsletterEmailLabel = document.getElementById('newsletter-email-label');
     const newsletterBtn = document.getElementById('newsletter-btn');
     const newsletterNameInput = document.getElementById('subscriber-name');
     const newsletterEmailInput = document.getElementById('subscriber-email');
-    // Copyright element
     const copyrightText = document.getElementById('copyright-text');
+    const col1Title = document.getElementById('col1-title');
+    const col1Desc = document.getElementById('col1-desc');
+    const col1Link = document.getElementById('col1-link');
+    const col2Title = document.getElementById('col2-title');
+    const col2Desc = document.getElementById('col2-desc');
+    const col2Link = document.getElementById('col2-link');
+    const col3Title = document.getElementById('col3-title');
+    const col3Desc = document.getElementById('col3-desc');
+    const col3Link = document.getElementById('col3-link');
 
-    if (!isRTL) {
+    if (pendingSwitch) {
       // Switch to RTL and Arabic
       html.setAttribute('dir', 'rtl');
       html.setAttribute('lang', 'ar');
       mainTitle.textContent = translations.ar.title;
       mainDesc.textContent = translations.ar.desc;
       toggleBtn.textContent = translations.ar.button;
-      // Newsletter form translations
       newsletterTitle.textContent = translations.ar.newsletter.title;
       newsletterNameLabel.textContent = translations.ar.newsletter.nameLabel;
       newsletterNameInput.placeholder = translations.ar.newsletter.namePlaceholder;
       newsletterEmailLabel.textContent = translations.ar.newsletter.emailLabel;
       newsletterEmailInput.placeholder = translations.ar.newsletter.emailPlaceholder;
       newsletterBtn.textContent = translations.ar.newsletter.btn;
-      // Copyright translation
       copyrightText.textContent = translations.ar.copyright;
-      // Update card 1
-      document.getElementById('card1-year').textContent = translations.ar.card1.year;
-      document.getElementById('card1-title').textContent = translations.ar.card1.title;
-      document.getElementById('card1-info').textContent = translations.ar.card1.info;
-      // Update card 2
-      document.getElementById('card2-year').textContent = translations.ar.card2.year;
-      document.getElementById('card2-title').textContent = translations.ar.card2.title;
-      document.getElementById('card2-info').textContent = translations.ar.card2.info;
-      // Repeat for more cards...
+      col1Title.textContent = translations.ar.columns.col1.title;
+      col1Desc.textContent = translations.ar.columns.col1.desc;
+      col1Link.textContent = translations.ar.columns.col1.link;
+      col2Title.textContent = translations.ar.columns.col2.title;
+      col2Desc.textContent = translations.ar.columns.col2.desc;
+      col2Link.textContent = translations.ar.columns.col2.link;
+      col3Title.textContent = translations.ar.columns.col3.title;
+      col3Desc.textContent = translations.ar.columns.col3.desc;
+      col3Link.textContent = translations.ar.columns.col3.link;
+      // Update all timeline cards (1 to 9)
+      for (let i = 1; i <= 9; i++) {
+        document.getElementById(`card${i}-year`).textContent = translations.ar.cards[`card${i}`].year;
+        document.getElementById(`card${i}-title`).textContent = translations.ar.cards[`card${i}`].title;
+        document.getElementById(`card${i}-hover`).textContent = translations.ar.cards[`card${i}`].hover;
+      }
       isRTL = true;
     } else {
       // Switch back to LTR and English
@@ -297,26 +482,32 @@
       mainTitle.textContent = translations.en.title;
       mainDesc.textContent = translations.en.desc;
       toggleBtn.textContent = translations.en.button;
-      // Newsletter form translations
       newsletterTitle.textContent = translations.en.newsletter.title;
       newsletterNameLabel.textContent = translations.en.newsletter.nameLabel;
       newsletterNameInput.placeholder = translations.en.newsletter.namePlaceholder;
       newsletterEmailLabel.textContent = translations.en.newsletter.emailLabel;
       newsletterEmailInput.placeholder = translations.en.newsletter.emailPlaceholder;
       newsletterBtn.textContent = translations.en.newsletter.btn;
-      // Copyright translation
       copyrightText.textContent = translations.en.copyright;
-      // Update card 1
-      document.getElementById('card1-year').textContent = translations.en.card1.year;
-      document.getElementById('card1-title').textContent = translations.en.card1.title;
-      document.getElementById('card1-info').textContent = translations.en.card1.info;
-      // Update card 2
-      document.getElementById('card2-year').textContent = translations.en.card2.year;
-      document.getElementById('card2-title').textContent = translations.en.card2.title;
-      document.getElementById('card2-info').textContent = translations.en.card2.info;
-      // Repeat for more cards...
+      col1Title.textContent = translations.en.columns.col1.title;
+      col1Desc.textContent = translations.en.columns.col1.desc;
+      col1Link.textContent = translations.en.columns.col1.link;
+      col2Title.textContent = translations.en.columns.col2.title;
+      col2Desc.textContent = translations.en.columns.col2.desc;
+      col2Link.textContent = translations.en.columns.col2.link;
+      col3Title.textContent = translations.en.columns.col3.title;
+      col3Desc.textContent = translations.en.columns.col3.desc;
+      col3Link.textContent = translations.en.columns.col3.link;
+      // Update all timeline cards (1 to 9)
+      for (let i = 1; i <= 9; i++) {
+        document.getElementById(`card${i}-year`).textContent = translations.en.cards[`card${i}`].year;
+        document.getElementById(`card${i}-title`).textContent = translations.en.cards[`card${i}`].title;
+        document.getElementById(`card${i}-hover`).textContent = translations.en.cards[`card${i}`].hover;
+      }
       isRTL = false;
     }
+    pendingSwitch = null;
+    languageModal.hide();
   };
 
   // Optional: Auto-detect browser language on first load
@@ -367,19 +558,5 @@
   resizeCanvas();
   animateParticles();
   </script>
-  <!-- Place your grid here, before </body> -->
-  <div class="container text-center">
-    <div class="row">
-      <div class="col">
-        Column
-      </div>
-      <div class="col">
-        Column
-      </div>
-      <div class="col">
-        Column
-      </div>
-    </div>
-  </div>
 </body>
 </html>
