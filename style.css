@@ -16,6 +16,11 @@ body {
   background-image: url("data:image/svg+xml;utf8,<svg width='28' height='32' viewBox='0 0 28 32' fill='none' xmlns='http://www.w3.org/2000/svg'><polygon points='14,2 27,9 27,23 14,30 1,23 1,9' stroke='%230a1833' stroke-width='1.5' fill='none' opacity='0.02'/></svg>");
   background-repeat: repeat;
   background-size: 28px 32px;
+
+  /* Make sure the footer stays at the bottom */
+  min-height: 100vh;         /* Full viewport height */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Hero Section */
@@ -27,6 +32,7 @@ body {
   padding: 3rem 1rem;
   text-align: center;
   position: relative; /* Needed for stacking context */
+  overflow: hidden;   /* Prevents particles from overflowing */
 }
 
 .hero .logo {
@@ -182,12 +188,49 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Style for the Learn More links */
+.learn-more-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #0071c5;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid #0071c5;
+  transition: color 0.2s, border-color 0.2s;
+}
+.learn-more-link:hover {
+  color: #005a99;
+  border-bottom: 2px solid #005a99;
+}
+
 /* Footer Note */
 .note {
   text-align: center;
   padding: 2rem 0;
   font-style: italic;
   color: #666;
+}
+
+/* Custom footer styles for a matching background and white text */
+.footer-custom {
+  background: linear-gradient(to right, #013e6d, #00a6ed); /* Same as .hero */
+  color: white;
+  height: 1in; /* About 1 inch tall */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+
+  /* Make sure the footer stays at the bottom */
+  margin-top: auto;          /* Pushes footer to the bottom */
+}
+
+.footer-text {
+  color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 1rem;
 }
 
 /* Responsive Text Sizes */
@@ -199,4 +242,108 @@ body {
   .hero p {
     font-size: 1rem;
   }
+}
+
+/* Particles Background for Hero Section */
+.particles-bg {
+  position: absolute;   /* Position it over the hero section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;           /* Put it behind the text */
+  pointer-events: none; /* Let mouse events pass through */
+  /* background: red;   Remove or comment out this line */
+}
+
+/* Logo, Heading, and Paragraph in Hero Section */
+.hero .logo,
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 2; /* Ensure these are above the particles */
+}
+
+/* Make the particles canvas fill the header and stay behind the text */
+#particles-canvas {
+  position: absolute;   /* Place it over the hero section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;           /* Put it behind the text */
+  pointer-events: none; /* Let mouse events pass through */
+  display: block;       /* Remove any inline gaps */
+}
+.hero {
+  position: relative;   /* Needed for absolute positioning of canvas */
+  overflow: hidden;     /* Prevents canvas from overflowing */
+}
+
+/* Newsletter form with 3-inch left and right margins */
+.newsletter-form {
+  margin-left: 3in;
+  margin-right: 3in;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+/* Make sure the form looks good on small screens */
+@media (max-width: 900px) {
+  .newsletter-form {
+    margin-left: 1in;
+    margin-right: 1in;
+  }
+}
+@media (max-width: 600px) {
+  .newsletter-form {
+    margin-left: 0.2in;
+    margin-right: 0.2in;
+    padding: 1rem;
+  }
+}
+
+/* Timeline carousel image hover effect */
+.timeline-card-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.timeline-card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  transition: opacity 0.3s;
+}
+.timeline-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: rgba(30, 30, 30, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: opacity 0.3s;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+.timeline-card-image-container:hover .timeline-card-img {
+  opacity: 0.3;
+}
+.timeline-card-image-container:hover .timeline-card-overlay {
+  opacity: 1;
 }

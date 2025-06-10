@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap RTL CSS for right-to-left support -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.rtl.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
 
+  <!-- Button to switch between English (LTR) and Arabic (RTL) -->
+  <button id="toggle-dir" style="margin: 1rem;">
+    Switch to Arabic (RTL)
+  </button>
+
   <!-- Header / Hero Section -->
   <header class="hero">
+    <!-- This canvas will show the animated particles -->
+    <canvas id="particles-canvas"></canvas>
     <div class="hero-content">
       <img src="img/intel-header-logo.svg" alt="Intel Logo" class="logo" />
-      <h1>Sustainability Through the Ages</h1>
-      <p>
+      <h1 id="main-title">Sustainability Through the Ages</h1>
+      <p id="main-desc">
         Explore Intel's journey through time, discovering how our commitment
         to innovation has shaped a more sustainable future for technology 
         and our planet.
@@ -26,11 +37,11 @@
 
     <!-- Card 1: 1968 -->
     <div class="card">
-      <h2>1968</h2>
-      <h3>Intel Founded</h3>
+      <h2 id="card1-year">1968</h2>
+      <h3 id="card1-title">Intel Founded</h3>
       <div class="card-image-container">
         <img src="img/contenteetimes-images-ednmoments-intel-founders-800.webp" alt="Intel founders and early days" />
-        <div class="card-text">
+        <div class="card-text" id="card1-info">
           Robert Noyce and Gordon Moore rename the newly formed company 
           NM Electronics to Intel Corporation, laying the foundation for 
           decades of technological innovation.
@@ -40,11 +51,11 @@
 
     <!-- Card 2: 1971 -->
     <div class="card">
-      <h2>1971</h2>
-      <h3>First Microprocessor</h3>
+      <h2 id="card2-year">1971</h2>
+      <h3 id="card2-title">First Microprocessor</h3>
       <div class="card-image-container">
         <img src="img/2c4955a0-26c5-41de-ab78-976aca047fc5_1280x853.jpg" alt="Intel 4004 microprocessor" />
-        <div class="card-text">
+        <div class="card-text" id="card2-info">
           Intel debuts the 4004, the world's first commercial microprocessor, 
           igniting the microprocessor revolution and propelling the future 
           of computing devices.
@@ -152,8 +163,223 @@
 
   </section>
 
-  <footer>
-    <p class="note">Scroll to view timeline | Hover over cards to learn more!</p>
+  <!-- Newsletter Subscription Form -->
+  <div class="newsletter-form">
+    <!-- Heading with an ID for translation -->
+    <h2 id="newsletter-title" class="text-center">Subscribe to Our Sustainability Newsletter</h2>
+    <form>
+      <!-- Name input -->
+      <div class="mb-3">
+        <label for="subscriber-name" class="form-label" id="newsletter-name-label">Name</label>
+        <input type="text" class="form-control" id="subscriber-name" placeholder="Enter your name">
+      </div>
+      <!-- Email input -->
+      <div class="mb-3">
+        <label for="subscriber-email" class="form-label" id="newsletter-email-label">Email address</label>
+        <input type="email" class="form-control" id="subscriber-email" placeholder="Enter your email">
+      </div>
+      <!-- Subscribe button -->
+      <button type="submit" class="btn btn-primary" id="newsletter-btn">Subscribe</button>
+    </form>
+  </div>
+
+  <!-- Footer Section -->
+  <!-- The footer uses the same background as the header and is about 1 inch tall -->
+  <footer class="footer-custom">
+    <p class="footer-text mb-0" id="copyright-text">
+      &copy; 2025 Intel Corporation. All rights reserved.
+    </p>
   </footer>
+
+  <!-- Bootstrap JS (needed for some Bootstrap features like carousel) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  // Beginner-friendly: Switch between LTR (English) and RTL (Arabic)
+  const toggleBtn = document.getElementById('toggle-dir');
+  let isRTL = false;
+
+  // Add translations for the newsletter form
+  const translations = {
+    en: {
+      title: "Sustainability Through the Ages",
+      desc: "Explore Intel's journey through time, discovering how our commitment to innovation has shaped a more sustainable future for technology and our planet.",
+      button: "Switch to Arabic (RTL)",
+      newsletter: {
+        title: "Subscribe to Our Sustainability Newsletter",
+        nameLabel: "Name",
+        namePlaceholder: "Enter your name",
+        emailLabel: "Email address",
+        emailPlaceholder: "Enter your email",
+        btn: "Subscribe"
+      },
+      card1: {
+        year: "1968",
+        title: "Intel Founded",
+        info: "Robert Noyce and Gordon Moore rename the newly formed company NM Electronics to Intel Corporation, laying the foundation for decades of technological innovation."
+      },
+      card2: {
+        year: "1971",
+        title: "First Microprocessor",
+        info: "Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices."
+      },
+      copyright: "© 2025 Intel Corporation. All rights reserved."
+    },
+    ar: {
+      title: "الاستدامة عبر العصور",
+      desc: "استكشف رحلة إنتل عبر الزمن، واكتشف كيف شكل التزامنا بالابتكار مستقبلًا أكثر استدامة للتكنولوجيا وكوكبنا.",
+      button: "التبديل إلى الإنجليزية (LTR)",
+      newsletter: {
+        title: "اشترك في نشرتنا الإخبارية للاستدامة",
+        nameLabel: "الاسم",
+        namePlaceholder: "أدخل اسمك",
+        emailLabel: "البريد الإلكتروني",
+        emailPlaceholder: "أدخل بريدك الإلكتروني",
+        btn: "اشترك"
+      },
+      card1: {
+        year: "١٩٦٨",
+        title: "تأسيس إنتل",
+        info: "روبرت نويس وجوردون مور يغيران اسم الشركة الجديدة من NM Electronics إلى إنتل، مما يمهد الطريق لعقود من الابتكار التكنولوجي."
+      },
+      card2: {
+        year: "١٩٧١",
+        title: "أول معالج دقيق",
+        info: "تطلق إنتل 4004، أول معالج دقيق تجاري في العالم، مما يشعل ثورة المعالجات الدقيقة ويدفع مستقبل أجهزة الحوسبة."
+      },
+      copyright: "© ٢٠٢٥ شركة إنتل. جميع الحقوق محفوظة."
+    }
+  };
+
+  toggleBtn.onclick = function() {
+    const html = document.documentElement;
+    const mainTitle = document.getElementById('main-title');
+    const mainDesc = document.getElementById('main-desc');
+    // Newsletter form elements
+    const newsletterTitle = document.getElementById('newsletter-title');
+    const newsletterNameLabel = document.getElementById('newsletter-name-label');
+    const newsletterEmailLabel = document.getElementById('newsletter-email-label');
+    const newsletterBtn = document.getElementById('newsletter-btn');
+    const newsletterNameInput = document.getElementById('subscriber-name');
+    const newsletterEmailInput = document.getElementById('subscriber-email');
+    // Copyright element
+    const copyrightText = document.getElementById('copyright-text');
+
+    if (!isRTL) {
+      // Switch to RTL and Arabic
+      html.setAttribute('dir', 'rtl');
+      html.setAttribute('lang', 'ar');
+      mainTitle.textContent = translations.ar.title;
+      mainDesc.textContent = translations.ar.desc;
+      toggleBtn.textContent = translations.ar.button;
+      // Newsletter form translations
+      newsletterTitle.textContent = translations.ar.newsletter.title;
+      newsletterNameLabel.textContent = translations.ar.newsletter.nameLabel;
+      newsletterNameInput.placeholder = translations.ar.newsletter.namePlaceholder;
+      newsletterEmailLabel.textContent = translations.ar.newsletter.emailLabel;
+      newsletterEmailInput.placeholder = translations.ar.newsletter.emailPlaceholder;
+      newsletterBtn.textContent = translations.ar.newsletter.btn;
+      // Copyright translation
+      copyrightText.textContent = translations.ar.copyright;
+      // Update card 1
+      document.getElementById('card1-year').textContent = translations.ar.card1.year;
+      document.getElementById('card1-title').textContent = translations.ar.card1.title;
+      document.getElementById('card1-info').textContent = translations.ar.card1.info;
+      // Update card 2
+      document.getElementById('card2-year').textContent = translations.ar.card2.year;
+      document.getElementById('card2-title').textContent = translations.ar.card2.title;
+      document.getElementById('card2-info').textContent = translations.ar.card2.info;
+      // Repeat for more cards...
+      isRTL = true;
+    } else {
+      // Switch back to LTR and English
+      html.setAttribute('dir', 'ltr');
+      html.setAttribute('lang', 'en');
+      mainTitle.textContent = translations.en.title;
+      mainDesc.textContent = translations.en.desc;
+      toggleBtn.textContent = translations.en.button;
+      // Newsletter form translations
+      newsletterTitle.textContent = translations.en.newsletter.title;
+      newsletterNameLabel.textContent = translations.en.newsletter.nameLabel;
+      newsletterNameInput.placeholder = translations.en.newsletter.namePlaceholder;
+      newsletterEmailLabel.textContent = translations.en.newsletter.emailLabel;
+      newsletterEmailInput.placeholder = translations.en.newsletter.emailPlaceholder;
+      newsletterBtn.textContent = translations.en.newsletter.btn;
+      // Copyright translation
+      copyrightText.textContent = translations.en.copyright;
+      // Update card 1
+      document.getElementById('card1-year').textContent = translations.en.card1.year;
+      document.getElementById('card1-title').textContent = translations.en.card1.title;
+      document.getElementById('card1-info').textContent = translations.en.card1.info;
+      // Update card 2
+      document.getElementById('card2-year').textContent = translations.en.card2.year;
+      document.getElementById('card2-title').textContent = translations.en.card2.title;
+      document.getElementById('card2-info').textContent = translations.en.card2.info;
+      // Repeat for more cards...
+      isRTL = false;
+    }
+  };
+
+  // Optional: Auto-detect browser language on first load
+  window.onload = function() {
+    const userLang = navigator.language || navigator.userLanguage;
+    if (userLang.startsWith('ar')) {
+      toggleBtn.click(); // Switch to Arabic automatically
+    }
+  };
+
+  // Beginner-friendly particles animation for the header
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  const particleCount = 60;
+  const particles = [];
+  function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      speedX: (Math.random() - 0.5) * 0.5,
+      speedY: (Math.random() - 0.5) * 0.5
+    });
+  }
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let p of particles) {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.globalAlpha = 0.7;
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
+    }
+    requestAnimationFrame(animateParticles);
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+  animateParticles();
+  </script>
+  <!-- Place your grid here, before </body> -->
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        Column
+      </div>
+      <div class="col">
+        Column
+      </div>
+      <div class="col">
+        Column
+      </div>
+    </div>
+  </div>
 </body>
 </html>
